@@ -7,14 +7,14 @@ import { MessengerProvider as Provider } from './provider/instagram'
 const PORT = process.env.PORT ?? 3008
 
 
-const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
-    .addAction(async (ctx, { flowDynamic }) => {
-        try {
-            await flowDynamic(`Holisss!!: ${ctx.body}`);
-        } catch (error) {
-            console.error('Error al procesar el mensaje:', error);
-        }
-    });
+//const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
+//    .addAction(async (ctx, { flowDynamic }) => {
+//        try {
+//            await flowDynamic(`Holisss!!: ${ctx.body}`);
+//        } catch (error) {
+//            console.error('Error al procesar el mensaje:', error);
+//        }
+//    });
 
 const mediaFlow = addKeyword<Provider, Database>(EVENTS.MEDIA)
     .addAction(async (ctx, { flowDynamic }) => {
@@ -43,16 +43,16 @@ const documentFlow = addKeyword<Provider, Database>(EVENTS.DOCUMENT)
         }
     });
 
-// const welcomeFlow = addKeyword<Provider, Database>(['test', 'banana'])
-// .addAction(async (ctx, { flowDynamic }) => {
-//     try {
-//         enqueueMessage(ctx.body, async (body) => {
-//             await flowDynamic(`All merged messages: ${body}`);
-//         });
-//     } catch (error) {
-//         console.error('Error al procesar el mensaje:', error);
-//     }
-// });
+ const welcomeFlow = addKeyword<Provider, Database>(['test', 'banana'])
+ .addAction(async (ctx, { flowDynamic }) => {
+     try {
+         enqueueMessage(ctx.body, async (body) => {
+             await flowDynamic(`All merged messages: ${body}`);
+         });
+     } catch (error) {
+         console.error('Error al procesar el mensaje:', error);
+     }
+ });
 
 
 const main = async () => {
