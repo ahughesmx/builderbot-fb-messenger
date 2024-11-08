@@ -7,7 +7,8 @@ import { MessengerProvider as Provider } from './provider/instagram'
 const PORT = process.env.PORT ?? 3008
 
 
-const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
+  const welcomeFlow = addKeyword<Provider, Database>(['test', 'banana'])
+//(EVENTS.WELCOME)
     .addAction(async (ctx, { flowDynamic }) => {
         try {
             await flowDynamic(`Holisss!!: ${ctx.body}`);
